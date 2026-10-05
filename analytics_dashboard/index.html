@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6b48ef">
+  <title>Short link analytics · SkillerWhale</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview">
+        <span class="brand-mark">SW</span>
+        <span><strong>SkillerWhale</strong><small>INTERNAL TOOLS</small></span>
+      </a>
+
+      <div class="workspace-picker"><span class="workspace-icon">↗</span><span>Short links <small>Reporting</small></span><span class="chevron">⌄</span></div>
+      <p class="nav-caption">DASHBOARD</p>
+      <nav class="main-nav" aria-label="Dashboard sections">
+        <a class="active" href="#overview"><span>◫</span> Overview</a>
+        <a href="#performance"><span>⌁</span> Performance</a>
+        <a href="#audience"><span>◎</span> Audience</a>
+        <a href="#links"><span>↗</span> Links <b>8</b></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="user-card"><span class="avatar">AS</span><span><strong>Alex Smith</strong><small>Platform team</small></span><span>⋯</span></div>
+      </div>
+    </aside>
+
+    <main class="main-panel" id="overview">
+      <header class="topbar"><div>Internal tools <span>/</span> Short links <span>/</span> <strong>Analytics</strong></div><div class="topbar-right"><span class="live-pill"><i></i> Updated today</span><span class="top-avatar">AS</span></div></header>
+
+      <div class="page-content">
+        <section class="hero">
+          <div><span class="eyebrow">SHORTENER REPORTING</span><h1>Short link analytics</h1><p>Traffic for short.skillerwhale.com links. Review clicks, sources and link activity for the selected period.</p></div>
+          <div class="hero-orbit"><span>↗</span><small>LINK REPORTING</small></div>
+        </section>
+
+        <div class="section-title-row"><div><p class="overline">REPORT SUMMARY</p><h2>Overview <span class="sparkle">✧</span></h2><p class="muted">Counts for SkillerWhale short links.</p></div><div class="range-control" aria-label="Date range"><button type="button" data-range="7">7 days</button><button type="button" data-range="30" class="selected">30 days</button><button type="button" data-range="90">90 days</button></div></div>
+
+        <section class="stats-grid" aria-label="Key metrics">
+          <article class="stat-card"><div class="stat-heading"><span class="stat-icon lavender">↗</span><span>Total clicks</span><span class="hint">ⓘ</span></div><strong id="clicks-value">—</strong><div class="stat-footer"><span class="change positive">↗ 18.4%</span><span>vs. previous period</span></div></article>
+          <article class="stat-card"><div class="stat-heading"><span class="stat-icon peach">♧</span><span>Unique visitors</span><span class="hint">ⓘ</span></div><strong id="visitors-value">—</strong><div class="stat-footer"><span class="change positive">↗ 12.8%</span><span>vs. previous period</span></div></article>
+          <article class="stat-card"><div class="stat-heading"><span class="stat-icon mint">◈</span><span>Avg. click rate</span><span class="hint">ⓘ</span></div><strong id="rate-value">—</strong><div class="stat-footer"><span class="change negative">↘ 2.1%</span><span>vs. previous period</span></div></article>
+          <article class="stat-card"><div class="stat-heading"><span class="stat-icon blue">▤</span><span>Active links</span><span class="hint">ⓘ</span></div><strong id="active-value">—</strong><div class="stat-footer"><span class="change neutral">+ 2 new</span><span>this month</span></div></article>
+        </section>
+
+        <div class="content-grid" id="performance">
+          <section class="panel chart-panel"><div class="panel-heading"><div><p class="overline">TRAFFIC OVER TIME</p><h3>Clicks by day</h3><p>Daily redirects for the selected period.</p></div><span class="chart-badge">✦ Trending up</span></div><div class="chart-summary"><strong id="chart-total">—</strong><span>total clicks in this period</span></div><div class="chart-wrap"><div class="chart-y-axis"><span id="axis-top">—</span><span id="axis-middle">—</span><span>0</span></div><svg id="click-chart" viewBox="0 0 680 230" preserveAspectRatio="none" aria-label="Clicks over time"><defs><linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#8f77f9" stop-opacity=".33"/><stop offset="100%" stop-color="#8f77f9" stop-opacity="0"/></linearGradient></defs><path class="grid-line" d="M0 12 H680 M0 112 H680 M0 212 H680"/><path id="chart-area" fill="url(#chart-fill)"/><path id="chart-line" fill="none" stroke="#7255ec" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chart-x-axis"><span id="axis-start">—</span><span id="axis-mid">—</span><span id="axis-end">Today</span></div></section>
+
+          <section class="panel audience-panel" id="audience"><div class="panel-heading"><div><p class="overline">TRAFFIC SOURCES</p><h3>Referrer breakdown</h3><p>Share of clicks by source.</p></div><span class="dots">⋯</span></div><div class="donut-wrap"><div class="donut"><div><strong id="donut-total">—</strong><small>clicks</small></div></div></div><div class="source-list"><div><span><i class="swatch email"></i>Email</span><strong>42%</strong></div><div><span><i class="swatch social"></i>Social</span><strong>28%</strong></div><div><span><i class="swatch direct"></i>Direct</span><strong>20%</strong></div><div><span><i class="swatch qr"></i>QR codes</span><strong>10%</strong></div></div></section>
+        </div>
+
+        <section class="panel links-panel" id="links"><div class="links-heading"><div><p class="overline">LINK DETAILS</p><h3>Short links</h3><p>Filter and export link activity.</p></div><button id="export-button" class="outline-button" type="button">↓ Export CSV</button></div><div class="table-toolbar"><label class="search-box"><span>⌕</span><input id="link-search" type="search" placeholder="Search links..."></label><select id="link-sort" aria-label="Sort links"><option value="clicks">Most clicks</option><option value="recent">Most recent</option><option value="name">Name A–Z</option></select></div><div class="table-scroller"><table><thead><tr><th>LINK</th><th>SHORT URL</th><th>STATUS</th><th>CLICKS</th><th>TREND</th><th></th></tr></thead><tbody id="links-body"></tbody></table></div><div class="table-footer"><span id="table-count">—</span><span>Short link activity</span></div></section>
+
+        <section class="insight-strip" id="insights"><div class="insight-icon">✦</div><div><p class="overline">REPORT NOTES</p><h3 id="insight-title">Email accounts for the largest share of clicks.</h3><p id="insight-copy">Check whether workshop reminder emails explain the increase before using this in the weekly report.</p></div><button id="insight-button" type="button">Next note ↗</button></section>
+
+        <footer>Internal reporting <span>Short link analytics · SkillerWhale</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
